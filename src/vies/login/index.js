@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from "react-router-dom";
+import {loginUser} from '../../config/firebase'
 
 
 
@@ -24,6 +25,19 @@ function LogIn(props){
      console.log(password)
     }
 
+    const onLogin = async function(){
+
+        try{
+            await loginUser(email,password)
+            alert('User Successfully Logged In!')
+            
+        }catch(error){
+            alert(error.message)
+        }
+
+
+    }
+
     return(
         <>
 
@@ -44,7 +58,7 @@ function LogIn(props){
            <input onChange={passVal} style={{height: '2rem',borderRadius: '10px'}} type='password' placeholder='Enter password'/>
          </div>
          <div style={{marginTop: '2rem'}}>
-           <button style={{height:'2rem',width:'5rem',borderRadius: '15px',backgroundColor: 'turquoise',border: 'none'}}>Log In</button>
+           <button onClick={onLogin} style={{height:'2rem',width:'5rem',borderRadius: '15px',backgroundColor: 'turquoise',border: 'none'}}>Log In</button>
          </div>
          <div  style={{marginTop: '2rem'}}>
              <h3>Don't have an account? <span onClick={()=>{history.push('/signup')}} style={{color: 'blue'}}>SignUp</span></h3>

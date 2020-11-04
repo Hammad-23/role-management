@@ -1,18 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory } from "react-router-dom";
+import {registerUser} from '../../config/firebase'
 
 
 function SignUp(){
+    const [username,setName]=useState('')
+    const [useremail,setUser]=useState('')
+    const [userpass,setPassword]=useState('')
+    
     let history = useHistory();
-    const name=()=>{
-
+    const name=(e)=>{
+       const input = e.target.value
+       setName(input)
     }
-    const email=()=>{
-
+    const Uemail=(e)=>{
+        const input = e.target.value
+        setUser(input)
     }
-    const pass=()=>{
-
+    const pass=(e)=>{
+        const input = e.target.value
+        setPassword(input)
     }
+
+    const allData={
+        username,
+        useremail,
+        userpass
+    }
+
+    localStorage.setItem('name', username)
+
+    
+    const onRegister = async function(){
+        try{
+            await registerUser(useremail,userpass)
+            alert('User is registered Successfully!')
+            history.replace('/')
+
+        }catch(error){
+            alert(error.message)
+        }
+    }
+
+    
     return(
         <>
 
@@ -37,13 +67,13 @@ function SignUp(){
                     </select>
                 </div>
                 <div style={{marginTop:'2rem'}}>
-                  <input onChange={email} style={{height: '2rem',borderRadius: '10px'}} type='text' placeholder='Enter Email'/>
+                  <input onChange={Uemail} style={{height: '2rem',borderRadius: '10px'}} type='text' placeholder='Enter Email'/>
                 </div>
                 <div style={{marginTop: '2rem'}}>
                   <input onChange={pass} style={{height: '2rem',borderRadius: '10px'}} type='password' placeholder='Enter password'/>
                 </div>
                 <div style={{marginTop: '2rem'}}>
-                  <button onClick={()=>{history.push('/')}} style={{height:'2rem',width:'5rem',borderRadius: '15px',backgroundColor: 'turquoise',border: 'none'}}>Sign Up</button>
+                  <button onClick={onRegister} style={{height:'2rem',width:'5rem',borderRadius: '15px',backgroundColor: 'turquoise',border: 'none'}}>Sign Up</button>
                 </div>
               </div>
        
