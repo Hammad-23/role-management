@@ -1,18 +1,21 @@
 import React from 'react'
 import { useHistory } from "react-router-dom";
+import CustomButton from '../../components/button'
+import FloatingActionButtons from '../../components/floatingbutton'
+import ButtonAppBar from '../../components/navbar'
 
 
 function DashboardEmployee(){
     let history = useHistory();
-    const logOut=()=>{
-            localStorage.removeItem('option')
-            history.replace('/')
-    }
+    
     return(
        
         <>
-         <h1>Dashboard Of Employee</h1>
-         <button onClick={logOut}>Log Out</button>
+        <ButtonAppBar text='Dashboard Of Employee' title='Log Out'/>
+         
+        
+         <FloatingActionButtons color='primary'/>
+
 
         </>
     )

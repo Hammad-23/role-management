@@ -63,7 +63,7 @@ function LogIn(props){
            <BasicTextFields onChange={emailVal} id='standard-basic' label='Enter Email' />
          </div>
          <div style={{marginTop: '2rem'}}>
-           <BasicTextFields onChange={passVal} id='standard-basic' label='Enter password' />
+           <BasicTextFields onChange={passVal} id='standard-basic' label='Enter password' type='password' />
          </div>
          <div style={{marginTop: '2rem'}}>
            <CustomButton onClick={onLogin} variant='contained' color='primary' text='Log In' />

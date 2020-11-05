@@ -81,7 +81,7 @@ function SignUp(){
                   <BasicTextFields onChange={Uemail} id='standard-basic' label='Enter Email' />
                 </div>
                 <div style={{marginTop: '2rem'}}>
-                  <BasicTextFields onChange={pass} id='standard-basic' label='Enter Password' />
+                  <BasicTextFields onChange={pass} id='standard-basic' label='Enter Password' type='password' />
                 </div>
                 <div style={{marginTop: '2rem'}}>
                   <CustomButton onClick={onRegister} text='Sign Up' variant='contained' color='primary' />
