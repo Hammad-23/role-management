@@ -32,9 +32,9 @@ function LogIn(props){
             alert('User Successfully Logged In!')
             const take=  localStorage.getItem('option')
             if(take==='Company'){
-              history.push('/dashboardcompany')
+              history.replace('/dashboardcompany')
             }else{
-              history.push('/dashboardemployee')
+              history.replace('/dashboardemployee')
             }
             
         }catch(error){
