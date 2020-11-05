@@ -7,6 +7,8 @@ function SignUp(){
     const [username,setName]=useState('')
     const [useremail,setUser]=useState('')
     const [userpass,setPassword]=useState('')
+
+    
     
     let history = useHistory();
     const name=(e)=>{
@@ -21,6 +23,10 @@ function SignUp(){
         const input = e.target.value
         setPassword(input)
     }
+    const handleSelect=(e)=>{
+       const val=(e.target.value)
+       localStorage.setItem('option',val)
+    }
 
     const allData={
         username,
@@ -28,13 +34,16 @@ function SignUp(){
         userpass
     }
 
-    localStorage.setItem('name', username)
+    // localStorage.setItem('Name', username)
+    // localStorage.setItem('option')
 
     
     const onRegister = async function(){
         try{
             await registerUser(useremail,userpass)
             alert('User is registered Successfully!')
+            
+          
             history.replace('/')
 
         }catch(error){
@@ -61,9 +70,9 @@ function SignUp(){
                 </div>
                 <div style={{marginTop:'2rem'}}>
                     <label>Select Role:</label>
-                    <select>
-                        <option>Company</option>
-                        <option>Employee</option>
+                    <select onClick={handleSelect}>
+                        <option value='Company'>Company</option>
+                        <option value='Employee'>Employee</option>
                     </select>
                 </div>
                 <div style={{marginTop:'2rem'}}>

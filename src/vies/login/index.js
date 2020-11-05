@@ -30,6 +30,12 @@ function LogIn(props){
         try{
             await loginUser(email,password)
             alert('User Successfully Logged In!')
+            const take=  localStorage.getItem('option')
+            if(take==='Company'){
+              history.push('/dashboardcompany')
+            }else{
+              history.push('/dashboardemployee')
+            }
             
         }catch(error){
             alert(error.message)
