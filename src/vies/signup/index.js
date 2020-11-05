@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useHistory } from "react-router-dom";
 import {registerUser} from '../../config/firebase'
+import BasicTextFields from '../../components/input'
+import CustomButton from '../../components/button'
 
 
 function SignUp(){
@@ -66,7 +68,7 @@ function SignUp(){
                   Sign Up
                 </div>
                 <div style={{marginTop:'3rem'}}>
-                  <input onChange={name} style={{height: '2rem',borderRadius: '10px'}} type='text' placeholder='Enter Name'/>
+                  <BasicTextFields onChange={name} id='standard-basic' label='Enter Name'/>
                 </div>
                 <div style={{marginTop:'2rem'}}>
                     <label>Select Role:</label>
@@ -76,13 +78,13 @@ function SignUp(){
                     </select>
                 </div>
                 <div style={{marginTop:'2rem'}}>
-                  <input onChange={Uemail} style={{height: '2rem',borderRadius: '10px'}} type='text' placeholder='Enter Email'/>
+                  <BasicTextFields onChange={Uemail} id='standard-basic' label='Enter Email' />
                 </div>
                 <div style={{marginTop: '2rem'}}>
-                  <input onChange={pass} style={{height: '2rem',borderRadius: '10px'}} type='password' placeholder='Enter password'/>
+                  <BasicTextFields onChange={pass} id='standard-basic' label='Enter Password' />
                 </div>
                 <div style={{marginTop: '2rem'}}>
-                  <button onClick={onRegister} style={{height:'2rem',width:'5rem',borderRadius: '15px',backgroundColor: 'turquoise',border: 'none'}}>Sign Up</button>
+                  <CustomButton onClick={onRegister} text='Sign Up' variant='contained' color='primary' />
                 </div>
               </div>
        

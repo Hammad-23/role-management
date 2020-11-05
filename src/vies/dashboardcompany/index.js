@@ -1,5 +1,6 @@
 import React from 'react'
 import { useHistory } from "react-router-dom";
+import CustomButton from '../../components/button'
 
 
 function DashboardCompany(){
@@ -12,7 +13,7 @@ function DashboardCompany(){
     return(
         <>
          <h1>Dashboard Of Company</h1>
-         <button onClick={signOut}>Log Out</button>
+         <CustomButton onClick={signOut} text='Log Out' variant='contained' color='primary' />
 
         </>
     )

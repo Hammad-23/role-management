@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useHistory } from "react-router-dom";
 import {loginUser} from '../../config/firebase'
+import BasicTextFields from '../../components/input'
+import CustomButton from '../../components/button'
 
 
 
@@ -58,13 +60,13 @@ function LogIn(props){
            Log In
          </div>
          <div style={{marginTop:'3rem'}}>
-           <input onChange={emailVal} style={{height: '2rem',borderRadius: '10px'}} type='text' placeholder='Enter Email'/>
+           <BasicTextFields onChange={emailVal} id='standard-basic' label='Enter Email' />
          </div>
          <div style={{marginTop: '2rem'}}>
-           <input onChange={passVal} style={{height: '2rem',borderRadius: '10px'}} type='password' placeholder='Enter password'/>
+           <BasicTextFields onChange={passVal} id='standard-basic' label='Enter password' />
          </div>
          <div style={{marginTop: '2rem'}}>
-           <button onClick={onLogin} style={{height:'2rem',width:'5rem',borderRadius: '15px',backgroundColor: 'turquoise',border: 'none'}}>Log In</button>
+           <CustomButton onClick={onLogin} variant='contained' color='primary' text='Log In' />
          </div>
          <div  style={{marginTop: '2rem'}}>
              <h3>Don't have an account? <span onClick={()=>{history.push('/signup')}} style={{color: 'blue'}}>SignUp</span></h3>
