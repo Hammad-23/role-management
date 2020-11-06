@@ -14,7 +14,7 @@ function DashboardEmployee(){
         <ButtonAppBar text='Dashboard Of Employee' title='Log Out'/>
          
         
-         <FloatingActionButtons color='primary'/>
+         <FloatingActionButtons onClick={()=>{history.push('/employeeform')}} color='primary'/>
 
 
         </>

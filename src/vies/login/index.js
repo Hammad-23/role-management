@@ -69,7 +69,7 @@ function LogIn(props){
            <CustomButton onClick={onLogin} variant='contained' color='primary' text='Log In' />
          </div>
          <div  style={{marginTop: '2rem'}}>
-             <h3>Don't have an account? <span onClick={()=>{history.push('/signup')}} style={{color: 'blue'}}>SignUp</span></h3>
+             <h3>Don't have an account? <span onClick={()=>{history.push('/signup')}} style={{color: 'blue',cursor: 'pointer'}}>SignUp</span></h3>
          </div>
        </div>
 

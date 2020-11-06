@@ -22,7 +22,7 @@ export default function FloatingActionButtons(props) {
 
   return (
     <div className={classes.root}>
-      <Fab color={props.color} aria-label='add'>
+      <Fab onClick={props.onClick} color={props.color} aria-label='add'>
         <AddIcon />
       </Fab>
       {/* <Fab color="secondary" aria-label="edit">
