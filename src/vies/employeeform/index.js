@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from "react-router-dom";
 import BasicTextFields from '../../components/input'
 import CustomButton from '../../components/button'
+import { profileInfo } from '../../config/firebase'
 
 function EmployeeForm(){
     let history = useHistory();
@@ -55,7 +56,7 @@ function EmployeeForm(){
    
        }
 
-       const profileInfo={
+       const information={
            profileName,
            education,
            degree,
@@ -65,11 +66,24 @@ function EmployeeForm(){
            age
        }
 
-    const submit=()=>{
-        localStorage.setItem('info',profileInfo)
-        alert('Your Information have been saved,Thankyou')
-        history.push('/dashboardemployee')
-    }   
+       const submit = async function () {
+
+        try{
+           await profileInfo(information)
+           alert('Your Information have been saved,Thankyou')
+           
+           history.push('/dashboardemployee')
+        }
+        catch(error){
+  
+           alert(error.message)
+  
+        }
+        
+  
+     }
+
+      
     
     return(
         <>

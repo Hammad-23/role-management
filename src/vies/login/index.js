@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import {loginUser} from '../../config/firebase'
 import BasicTextFields from '../../components/input'
 import CustomButton from '../../components/button'
+import  firebase from 'firebase';
 
 
 
@@ -32,6 +33,8 @@ function LogIn(props){
         try{
             await loginUser(email,password)
             alert('User Successfully Logged In!')
+            let userId = firebase.auth().currentUser.uid;
+            localStorage.setItem('ID',userId)
             const take=  localStorage.getItem('option')
             if(take==='Company'){
               history.replace('/dashboardcompany')

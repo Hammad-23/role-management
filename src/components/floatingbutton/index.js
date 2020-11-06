@@ -25,16 +25,16 @@ export default function FloatingActionButtons(props) {
       <Fab onClick={props.onClick} color={props.color} aria-label='add'>
         <AddIcon />
       </Fab>
-      {/* <Fab color="secondary" aria-label="edit">
+       <Fab color="secondary" aria-label="edit">
         <EditIcon />
       </Fab>
-      <Fab variant="extended">
+       <Fab variant="extended">
         <NavigationIcon className={classes.extendedIcon} />
-        Navigate
+        Apply For Job
       </Fab>
-      <Fab disabled aria-label="like">
+      {/* <Fab disabled aria-label="like">
         <FavoriteIcon />
-      </Fab> */}
+      </Fab>   */}
     </div>
   );
 }

@@ -21,6 +21,7 @@ var firebaseConfig = {
 
 
   const auth = firebase.auth();
+  
 
   function registerUser (email,password){
    return auth.createUserWithEmailAndPassword(email,password)
@@ -30,7 +31,15 @@ var firebaseConfig = {
       return auth.signInWithEmailAndPassword(email,password)
   }
 
+  const store = firebase.firestore();
+  function profileInfo(information) {
+    return store.collection("profileInformation").add(information);
+  }
+
+//  const currentUser= auth.getInstance().getCurrentUser().getUid();
+//  console.log(currentUser)
   export{
       registerUser,
-      loginUser
+      loginUser,
+      profileInfo
   }
