@@ -4,11 +4,12 @@ import CustomButton from "../../components/button";
 import FloatingActionButtons from "../../components/floatingbutton";
 import ButtonAppBar from "../../components/navbar";
 import FloatingEditButton from '../../components/floatingedit'
+import EmployeeForm from '../employeeform'
 
 import { getData } from "../../config/firebase";
 
 function DashboardEmployee() {
-    
+    const [hid,setHid]=useState(false)
     const [show,setShow]=useState([])
   let history = useHistory();
   useEffect(() => {
@@ -34,7 +35,7 @@ const [float,setFloat]=useState(true)
 //   setSee(true)
 // }
 useEffect(()=>{
-  if(show.length===null){
+  if(show==undefined){
     console.log('khali hai')
    setSee(true)
    setFloat(false)
@@ -43,7 +44,7 @@ useEffect(()=>{
    setSee(false)
    setFloat(true)
   }
-},[])
+},[show])
 
   return (
     <>
@@ -55,7 +56,9 @@ useEffect(()=>{
         }}
         color="primary"
       /> }
-    { float&& <FloatingEditButton/> }
+    { float&& <FloatingEditButton onClick={()=>{history.push('/employeeform')}}/> }
+      { hid&& <EmployeeForm show={show}/> }
+    
     </>
   );
 }

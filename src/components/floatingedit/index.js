@@ -25,7 +25,7 @@ export default function FloatingEditButton(props) {
       {/* <Fab onClick={props.onClick} color={props.color} aria-label='add'>
         <AddIcon />
       </Fab> */}
-       <Fab color="secondary" aria-label="edit">
+       <Fab color="secondary" onClick={props.onClick} aria-label="edit">
         <EditIcon />
       </Fab>
        <Fab variant="extended">

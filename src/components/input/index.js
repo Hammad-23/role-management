@@ -18,6 +18,7 @@ export default function BasicTextFields(props) {
     <form className={classes.root} noValidate autoComplete="off">
       <TextField
         onChange={props.onChange}
+        value={props.value}
         id={props.id}
         label={props.label}
         type={props.type}

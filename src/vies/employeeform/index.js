@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import BasicTextFields from "../../components/input";
 import CustomButton from "../../components/button";
 import { profileInfo } from "../../config/firebase";
-function EmployeeForm() {
+function EmployeeForm(props) {
 
 
   let history = useHistory();
@@ -71,6 +71,9 @@ function EmployeeForm() {
       alert(error.message);
     }
   };
+  // const find=props.show.profileName
+  console.log(props.show)
+  const [text,setText]=useState('hammad')
 
   return (
     <>
@@ -81,6 +84,7 @@ function EmployeeForm() {
       <div>
         <BasicTextFields
           onChange={fullName}
+          value={text}
           id="standard-basic"
           label="Enter Your Full Name"
         />
