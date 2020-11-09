@@ -3,10 +3,46 @@ import { useHistory } from "react-router-dom";
 import BasicTextFields from "../../components/input";
 import CustomButton from "../../components/button";
 import { profileInfo } from "../../config/firebase";
+import { getData } from "../../config/firebase";
 function EmployeeForm(props) {
 
-
+const [hold,setHold]=useState([])
+const [text,setText]=useState('')
+const [text2,setText2]=useState('')
+const [text3,setText3]=useState('')
+const [text4,setText4]=useState('')
+const [num1,setNum1]=useState('')
+const [text5,setText5]=useState('')
+const [num2,setNum2]=useState('')
   let history = useHistory();
+
+  useEffect(() => {
+    const fetchData=async ()=>{
+     const giveData = await getData()
+     console.log(giveData)
+     let arr=[]
+     giveData.forEach((res)=>{
+         arr.push(res.data())
+    
+     })
+    setHold(...arr)
+    }
+    fetchData()
+    
+      }, []);
+    console.log(hold)
+
+    useEffect(()=>{
+      setText(hold.profileName)
+      setText2(hold.education)
+      setText3(hold.degree)
+      setText4(hold.school)
+      setNum1(hold.num)
+      setText5(hold.adress)
+      setNum2(hold.age)
+
+    },[hold])
+
   const [profileName, setName] = useState("");
   const [education, setEdu] = useState("");
   const [degree, setDegree] = useState("");
@@ -72,8 +108,8 @@ function EmployeeForm(props) {
     }
   };
   // const find=props.show.profileName
-  console.log(props.show)
-  const [text,setText]=useState('hammad')
+  // console.log(props.show)
+  
 
   return (
     <>
@@ -92,6 +128,7 @@ function EmployeeForm(props) {
       <div>
         <BasicTextFields
           onChange={highestEducation}
+          value={text2}
           id="standard-basic"
           label="Enter highest Education"
         />
@@ -99,6 +136,7 @@ function EmployeeForm(props) {
       <div>
         <BasicTextFields
           onChange={lastDegree}
+          value={text3}
           id="standard-basic"
           label="Enter Last Degree Name"
         />
@@ -106,6 +144,7 @@ function EmployeeForm(props) {
       <div>
         <BasicTextFields
           onChange={lastSchool}
+          value={text4}
           id="standard-basic"
           label="Enter Last School Name"
         />
@@ -113,6 +152,7 @@ function EmployeeForm(props) {
       <div>
         <BasicTextFields
           onChange={number}
+          value={num1}
           id="standard-basic"
           label="Enter Mobile Number"
           type="number"
@@ -121,6 +161,7 @@ function EmployeeForm(props) {
       <div>
         <BasicTextFields
           onChange={currentAdress}
+          value={text5}
           id="standard-basic"
           label="Enter Your Current adress"
         />
@@ -128,6 +169,7 @@ function EmployeeForm(props) {
       <div>
         <BasicTextFields
           onChange={yourAge}
+          value={num2}
           id="standard-basic"
           label="Enter Your Age"
           type="number"
