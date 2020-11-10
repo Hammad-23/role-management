@@ -11,6 +11,7 @@ import SignUp from '../vies/signup'
 import DashboardCompany from '../vies/dashboardcompany'
 import DashboardEmployee from '../vies/dashboardemployee'
 import EmployeeForm from '../vies/employeeform'
+import ApplyJobs from '../vies/jobs'
 
 export default function App() {
   return (
@@ -21,6 +22,9 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+        <Route path="/applyjobs">
+           <ApplyJobs/>
+         </Route>
         <Route path="/employeeform">
            <EmployeeForm/>
          </Route>

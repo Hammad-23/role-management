@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
@@ -18,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function FloatingEditButton(props) {
+  let history = useHistory();
   const classes = useStyles();
 
   return (
@@ -28,7 +30,7 @@ export default function FloatingEditButton(props) {
        <Fab color="secondary" onClick={props.onClick} aria-label="edit">
         <EditIcon />
       </Fab>
-       <Fab variant="extended">
+       <Fab variant="extended" onClick={()=>{history.push('/applyjobs')}}>
         <NavigationIcon className={classes.extendedIcon} />
         Apply For Job
       </Fab>

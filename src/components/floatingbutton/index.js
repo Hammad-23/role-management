@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
@@ -7,6 +8,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import NavigationIcon from '@material-ui/icons/Navigation';
 
 const useStyles = makeStyles((theme) => ({
+  
   root: {
     '& > *': {
       margin: theme.spacing(1),
@@ -18,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function FloatingActionButtons(props) {
+  let history = useHistory();
   const classes = useStyles();
 
   return (
@@ -25,10 +28,10 @@ export default function FloatingActionButtons(props) {
       <Fab onClick={props.onClick} color={props.color} aria-label='add'>
         <AddIcon />
       </Fab>
-       <Fab color="secondary" aria-label="edit">
+       {/* <Fab color="secondary" aria-label="edit">
         <EditIcon />
-      </Fab>
-       <Fab variant="extended">
+      </Fab> */}
+       <Fab variant="extended" onClick={()=>{alert('Add Profile Information First.')}}>
         <NavigationIcon className={classes.extendedIcon} />
         Apply For Job
       </Fab>
