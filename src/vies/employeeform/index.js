@@ -32,7 +32,12 @@ const [num2,setNum2]=useState('')
       }, []);
     console.log(hold)
 
+
+
     useEffect(()=>{
+      if(hold==undefined){
+        console.log('database khali hai')
+      }else{
       setText(hold.profileName)
       setText2(hold.education)
       setText3(hold.degree)
@@ -40,6 +45,8 @@ const [num2,setNum2]=useState('')
       setNum1(hold.num)
       setText5(hold.adress)
       setNum2(hold.age)
+      console.log('database me data hai')
+      }
 
     },[hold])
 

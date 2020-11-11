@@ -23,7 +23,7 @@ function ApplyJobs(){
       {data.map((item)=>{
         return(
 
-          <div style={{display: 'flex',justifyContent:'center',alignItems:'center'}}>
+          <div style={{display: 'flex',justifyContent:'center',alignItems:'center',backgroundColor: 'gray'}}>
           <div style={{marginTop: '3rem'}}>
             <MediaCard item={item}/>
           </div>
