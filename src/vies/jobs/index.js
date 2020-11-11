@@ -10,7 +10,9 @@ function ApplyJobs(){
   }]
   console.log(data)
 
-    data.push({jobTitle: 'Frontend Developer'})
+    data.push({jobTitle: 'Frontend Developer',
+    jobDes: 'Factual Code is looking for Frontend Developer who have expertise in HTML5, CSS3, Bootstrap, JavaScript, React.js, Experience:(1 year atleast), Salary: (30k-50k)'
+  })
 
    
   
