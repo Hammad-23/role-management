@@ -34,6 +34,12 @@ const store = firebase.firestore();
 function profileInfo(information) {
   return store.collection("profileInformation").doc(userId).set(information);
 }
+
+function jobReq(requirements) {
+  return store.collection("jobRequirements").doc(userId).set(requirements);
+}
+
+
 async function getData() {
   const userID = localStorage.getItem("ID");
 let data= await  store
@@ -42,6 +48,17 @@ let data= await  store
     .get()
     return data
 }
+
+async function getJob() {
+  
+let data= await  store
+    .collection("jobRequirements")
+    // .where("userId", "==", userID)
+    .get()
+    return data
+}
+
+
 //  const currentUser= auth.getInstance().getCurrentUser().getUid();
 //  console.log(currentUser)
-export { registerUser, loginUser, profileInfo, getData };
+export { registerUser, loginUser, profileInfo, getData,jobReq,getJob };
