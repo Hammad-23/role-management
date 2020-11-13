@@ -53,6 +53,9 @@ async function getJob() {
   
 let data= await  store
     .collection("jobRequirements")
+//     .onSnapshot(doc => {
+//       console.log(doc.data());
+//  });
     // .where("userId", "==", userID)
     .get()
     return data

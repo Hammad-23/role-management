@@ -29,12 +29,14 @@ function ApplyJobs() {
     },
   ];
   console.log(data);
-
+ 
   data.push({
     jobTitle: jobss.title,
     jobDes:
       jobss.des
-  });
+  }); 
+
+
 
 
  

@@ -18,7 +18,7 @@ export default function BoxTextFields(props) {
     <form className={classes.root} noValidate autoComplete="off">
       {/* <TextField id="standard-basic" label="Standard" />
       <TextField id="filled-basic" label="Filled" variant="filled" /> */}
-      <TextField id={props.id} label={props.label} variant={props.variant} />
+      <TextField id={props.id} label={props.label} variant={props.variant} onChange={props.onChange} />
     </form>
   );
 }

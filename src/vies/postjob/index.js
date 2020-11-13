@@ -10,15 +10,17 @@ function PostJob() {
   const [des,setDes]=useState('')
   let history = useHistory();
   const jobtitle=(e)=>{
-    const val=e.target.value
+    const val=e.target.value;
     setTitle(val)
 
   }
   const jobdes=(e)=>{
-   const val=e.target.value
+   const val =e.target.value;
+  //  console.log(val)
    setDes(val)
 
   }
+  // console.log(jobdes)
   const requirements={
     title,
     des
