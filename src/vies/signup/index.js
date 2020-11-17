@@ -9,6 +9,7 @@ function SignUp(){
     const [username,setName]=useState('')
     const [useremail,setUser]=useState('')
     const [userpass,setPassword]=useState('')
+    const [opt,setOpt]=useState('')
 
     
     
@@ -28,12 +29,14 @@ function SignUp(){
     const handleSelect=(e)=>{
        const val=(e.target.value)
        localStorage.setItem('option',val)
+       setOpt(val)
     }
 
     const allData={
         username,
         useremail,
-        userpass
+        userpass,
+        opt
     }
 
     // localStorage.setItem('Name', username)
@@ -42,7 +45,7 @@ function SignUp(){
     
     const onRegister = async function(){
         try{
-            await registerUser(useremail,userpass)
+            await registerUser(useremail,userpass,opt)
             alert('User is registered Successfully!')
             
           

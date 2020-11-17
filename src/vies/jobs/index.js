@@ -5,38 +5,43 @@ import { getJob } from '../../config/firebase'
 
 function ApplyJobs() {
   const [jobss,setJobss]=useState([])
-  useEffect(() => {
-    const fetchData=async ()=>{
-     const giveJob = await getJob()
-     console.log(giveJob)
-     let arr=[]
-     giveJob.forEach((res)=>{
-         arr.push(res.data())
-    
+  
+  useEffect(()=>{
+   getJob().then(function(snapshot){
+    let arr=[]
+     snapshot.forEach(function(res){
+       console.log(res.data())
+       arr.push(res.data())
+      //  console.log(arr)
+      console.log(...arr)
+       setJobss([...arr])
+      //  console.log(jobss)
      })
-    setJobss(...arr)
-    }
-    fetchData()
-    
-      }, []);
-    console.log(jobss)
+     
+   })
+  },[])
+  console.log(jobss)
+
+
+  
   
   const data = [
     {
-      jobTitle: "FullStack Developer",
-      jobDes:
+      title: "FullStack Developer",
+      des:
         "We are looking for fullstack developer having strong hand on javascript, React, React Native, Node.js, MongoDB, Firebase, Experience required:(2-3 years), Salary: (50k-80k) ",
     },
   ];
   console.log(data);
  
-  data.push({
-    jobTitle: jobss.title,
-    jobDes:
-      jobss.des
-  }); 
+ 
 
-
+  for(var i=0;i<jobss.length;i++){
+    data.push(jobss[i]);
+    console.log(jobss[i])
+}
+ 
+console.log(data)
 
 
  

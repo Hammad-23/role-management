@@ -31,7 +31,7 @@ export default function MediaCard(props) {
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
            {/* Full Stack developer */}
-           {props.item.jobTitle} 
+           {props.item.title} 
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
            {/* We are looking for fullstack developer.who have expertise in React.js, React Native,
@@ -40,7 +40,7 @@ export default function MediaCard(props) {
             2-3 years
             Send your resume:
             factualcode.official@gmail.com */}
-            {props.item.jobDes}
+            {props.item.des}
            
           </Typography>
         </CardContent>
