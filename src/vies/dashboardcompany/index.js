@@ -13,7 +13,7 @@ function DashboardCompany(){
         <div style={{marginTop:'3rem',display: 'flex',justifyContent: 'space-around'}}>
            <CustomButton onClick={()=>{history.push('/postjob')}} text='Post a Job' color='primary' variant='contained'/>
            <CustomButton text='See Notifications' color='primary' variant='contained'/>
-           <CustomButton text='View Jobs' color='primary' variant='contained' />
+           <CustomButton onClick={()=>{history.push('/viewjobs')}} text='View Jobs' color='primary' variant='contained' />
         </div>
 
          

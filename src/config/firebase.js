@@ -22,8 +22,8 @@ firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
 
-function registerUser(email, password, option) {
-  return auth.createUserWithEmailAndPassword(email, password, option);
+function registerUser(email, password) {
+  return auth.createUserWithEmailAndPassword(email, password);
 }
 
 function loginUser(email, password) {

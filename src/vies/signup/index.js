@@ -45,7 +45,7 @@ function SignUp(){
     
     const onRegister = async function(){
         try{
-            await registerUser(useremail,userpass,opt)
+            await registerUser(useremail,userpass)
             alert('User is registered Successfully!')
             
           
