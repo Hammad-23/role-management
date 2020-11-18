@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -7,6 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import  {getJob} from '../../config/firebase'
 
 const useStyles = makeStyles({
   table: {
@@ -27,6 +28,26 @@ const rows = [
 ];
 
 export default function BasicTable() {
+
+    const [view,setView]=useState([])
+  
+    useEffect(()=>{
+     getJob().then(function(snapshot){
+      let arr=[]
+       snapshot.forEach(function(res){
+         console.log(res.data())
+         arr.push(res.data())
+        
+        console.log(...arr)
+         setView([...arr])
+        
+       })
+       
+     })
+    },[])
+    console.log(view)
+
+
   const classes = useStyles();
 
   return (
@@ -42,12 +63,12 @@ export default function BasicTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
+          {view.map((row) => (
+            <TableRow key={row.title}>
               <TableCell style={{cursor: 'pointer'}} component="th" scope="row">
-                {row.name}
+                {row.title}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
+              <TableCell align="right">{row.des}</TableCell>
               {/* <TableCell align="right">{row.fat}</TableCell>
               <TableCell align="right">{row.carbs}</TableCell>
               <TableCell align="right">{row.protein}</TableCell> */}
